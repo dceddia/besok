@@ -1,3 +1,0 @@
-Besok
-
-Simple analytics and page view tracking
