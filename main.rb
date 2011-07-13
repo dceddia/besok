@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'data_mapper'
+require 'erb'
 
 DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/besok.sqlite3")
 
@@ -56,9 +57,17 @@ def add_visit(request)
 end
 
 get '/' do
-    "Request a new PageTrack ID, or check up on an existing one!"
+    erb :index
 end
     
+get '/new' do
+    erb :new
+end
+
+get '/track' do
+    erb :track
+end
+
 get '/visit' do
     add_visit(request)
     send_file 'blank.gif'
