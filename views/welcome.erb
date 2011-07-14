@@ -1,0 +1,22 @@
+    <h1>Welcome!</h1>
+    <p>You've created a new page tracking token:</p>
+    <div class="token"><%= @new_id %></div>
+    <p>With this, you'll be able to start tracking page views and analyzing results!</p>
+    <h2>Next steps...</h2>
+    <ol>
+        <li>
+            <span class="highlight">Get access to the page you'd like to track</span>
+            <p>Ask your system administrator if you do not have the ability to change the page, since that's required to continue</p>
+        </li>
+        <li>
+            <span class="highlight">Add some code</span>
+            <p>At the bottom of the page, paste this bit of code:</p>
+            <pre>
+                &lt;img src=&quot;http://views.centsei.com/visit/<%= @new_id %>&quot; /&gt;
+            </pre>
+        </li>
+        <li>
+            <span class="highlight">Log in to check your stats</span>
+            <p>Visit <a href="http://views.centsei.com/manage">http://views.centsei.com/manage</a> to see pretty graphs depicting the populartity of your web page!</p>
+        </li>
+    </ol>
