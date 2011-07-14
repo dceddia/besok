@@ -19,7 +19,8 @@ def shorten(str, max_length)
     end
 end
 
-def add_visit(request)
+def add_visit(token, request)
+    page = Page.find(
     visit = Visit.new(
         :occurred_at        => Time.now,
         :ip                 => request.ip,
@@ -72,11 +73,11 @@ get '/check' do
     erb :check
 end
 
+get '/visit' do
+    redirect '/'
+end
+
 get '/visit/:id' do
     add_visit(request)
     send_file 'blank.gif'
-end
-
-get '/views' do
-    Visit.count.to_s
 end
