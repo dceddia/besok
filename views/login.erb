@@ -1,0 +1,10 @@
+    <h2>Login</h2>
+    <p>Enter your page token and the password you chose when you registered.</p>
+    <% if flash[:error] %>
+    <p class="error"><%= flash[:error] %></p>
+    <% end %>
+    <form action="/login" method="post">
+        <div><label for="token">Token:</label><input type="text" name="name" /></div>
+        <div><label for="password">Password:</label><input type="password" name="password" /></div>
+        <div><input type="submit" value="Login"/></div>
+    </form>
