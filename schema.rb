@@ -8,12 +8,17 @@ class Page
     property :name,         String
     property :url,          String, :length => 256
     property :description,  Text
+    property :password,     BCryptHash
 
     validates_length_of :name, :max => name.length, :message => "Name can't be longer than #{name.length} characters."
     validates_length_of :url, :max => url.length, :message => "URL can't be longer than #{url.length} characters."
     validates_length_of :description, :max => description.length, :message => "Description can't be longer than #{description.length} characters."
 
     has n, :visits
+
+    def to_s
+        "Page:\n\tid: #{id}\n\tname: #{name}\n\turl: #{url}\n\tdescription: #{description}\n\tpassword: #{password}\n"
+    end
 end
 
 class Visit
