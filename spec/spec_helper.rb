@@ -1,6 +1,9 @@
-require 'rubygems'
 require File.join(File.dirname(__FILE__), "..", "besok.rb")
+require 'rubygems'
 require 'rack/test'
+require 'capybara'
+require 'capybara/dsl'
+require 'capybara/rspec'
 
 set :environment, :test
 set :logging, false
