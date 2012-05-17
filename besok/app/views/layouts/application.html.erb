@@ -18,9 +18,9 @@
     <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
   </head>
-  <body>
+  <body class="<%= 'collapse' unless user_signed_in? %>">
 
-    <% if not main_page? %>
+    <% if user_signed_in? %>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -29,12 +29,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Besok</a>
+          <a class="brand" href="#">Besök</a>
+          <div class="pull-right">
+            <%= link_to "Sign Out", destroy_user_session_path, :class => "btn" %>
+          </div>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Your Stats", "/path1"  %></li>
+              <li><%= link_to "New Token", "/path2"  %></li>
+              <li><%= link_to "Help", "/path3"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -46,7 +49,7 @@
       <div class="content">
         <div class="row">
           <div class="notice"><%= notice %></p>
-          <div class="alert"><%= alert %></p>
+          <div class="notice"><%= alert %></p>
         </div>
         <%= yield %>
       </div><!--/content-->

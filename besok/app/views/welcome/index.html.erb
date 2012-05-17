@@ -1,10 +1,5 @@
 <div class="hero-unit">
-  <% if user_signed_in? %>
-    <div class="user-action">
-      Signed in as <%= current_user.email %>. Not you?
-      <%= link_to "Sign Out", destroy_user_session_path %>
-    </div>
-  <% else %>
+  <% if not user_signed_in? %>
     <%= link_to "Sign In", new_user_session_path, :class => "btn user-action" %>    
   <% end %>
   <%= image_tag 'besok-logo.png', :alt => 'Besok', :id => 'logo' %>
