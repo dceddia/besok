@@ -1,4 +1,12 @@
 <div class="hero-unit">
+  <% if user_signed_in? %>
+    <div class="user-action">
+      Signed in as <%= current_user.email %>. Not you?
+      <%= link_to "Sign Out", destroy_user_session_path %>
+    </div>
+  <% else %>
+    <%= link_to "Sign In", new_user_session_path, :class => "btn user-action" %>    
+  <% end %>
   <%= image_tag 'besok-logo.png', :alt => 'Besok', :id => 'logo' %>
   <h1>Besök</h1>
   <span>Simple analytics and page view tracking</span>
@@ -27,6 +35,6 @@
   <div class="span3">
     <h3>Sign up now!</h3>
     <p>Signing up is free! Click below.</p>
-    <a class="btn btn-warning btn-large center">Sign Up!</a>
+    <%= link_to "Sign Up!", new_user_registration_path, :class => "btn btn-warning btn-large" %>
   </div>
 </div>
