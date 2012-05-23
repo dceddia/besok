@@ -2,6 +2,7 @@ Besok::Application.routes.draw do
   devise_for :users
 
   match "dashboard" => "dashboard#index"
+  resources :tokens
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
