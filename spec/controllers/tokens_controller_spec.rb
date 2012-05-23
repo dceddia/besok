@@ -24,7 +24,7 @@ describe TokensController do
   # Token. As you add validations to Token, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {:name => 'ab23c', :description => 'My site tracker', :user_id => 1}
   end
   
   # This should return the minimal set of values that should be in the session

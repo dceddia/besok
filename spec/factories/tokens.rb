@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :token do
-    name "MyString"
-    url "MyString"
-    description "MyText"
+    name "abcdefg"
+    url "http://foo.com"
+    description "This is for Foo"
     user_id 1
   end
 end
