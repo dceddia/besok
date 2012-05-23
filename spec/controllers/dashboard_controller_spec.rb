@@ -13,7 +13,10 @@ describe DashboardController do
       response.should be_ok
     end
     
-    it "displays the user's tracking tokens"
+    it "displays the user's tracking tokens" do
+      Token.should_receive(:all)
+      get 'index'
+    end
   end
   
   context "without a user logged in" do
