@@ -3,7 +3,11 @@ require 'spec_helper'
 describe DashboardController do
   context "with user logged in" do
     login_user
-  
+    
+    def valid_token_for_user(user_id)
+      {:name => 'ab23c', :description => 'My site tracker', :user_id => user_id}
+    end
+    
     it "should have a current user" do
       subject.current_user.should_not be_nil
     end
@@ -14,8 +18,17 @@ describe DashboardController do
     end
     
     it "displays the user's tracking tokens" do
-      Token.should_receive(:all)
+      tokens = [Token.create!(valid_token_for_user(1)), Token.create!(valid_token_for_user(1))]
       get 'index'
+      assigns(:tokens).should eq(tokens)
+    end
+    
+    it "should not show another user's tracking tokens" do
+      my_tokens = [Token.create!(valid_token_for_user(1))]
+      other_user = FactoryGirl.create(:user)
+      other_user_tokens = [Token.create!(valid_token_for_user(2))]
+      get 'index'
+      assigns(:tokens).should eq(my_tokens)
     end
   end
   
