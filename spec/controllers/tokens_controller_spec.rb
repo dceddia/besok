@@ -180,8 +180,16 @@ describe TokensController do
     
   describe "GET visit" do
     it "should not require a user to be logged in" do
-      get :visit
+      token = Token.create! valid_attributes
+      get :visit, {:id => token.to_param}
       response.should be_ok
+    end
+    
+    it "should increase this token's visits by 1" do
+      token = Token.create! valid_attributes
+      expect {
+        get :visit, {:id => token.to_param}
+      }.to change{token.visits.count}.by(1)
     end
   end
 end

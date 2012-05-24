@@ -5,7 +5,7 @@
     <% if @tokens.length > 0 %>
     <ul class="token-list">
       <% @tokens.each do |token| %>
-      <li><%= token.name %></li>
+      <li><%= token.name %>: <%= token.visits.count %> views</li>
       <% end %>
     </ul>
     <% else %>
