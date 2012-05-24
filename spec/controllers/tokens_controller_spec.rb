@@ -27,6 +27,10 @@ describe TokensController do
     {:name => 'ab23c', :description => 'My site tracker', :user_id => 1}
   end
   
+  def user_supplied_attributes
+    {:description => 'site tracking', :url => 'http://site.com'}
+  end
+  
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # TokensController. Be sure to keep this updated too.
@@ -73,6 +77,14 @@ describe TokensController do
     end
 
     describe "POST create" do
+      describe "with user-entered params" do
+        it "creates a new Token" do
+          expect {
+            post :create, {:token => user_supplied_attributes}
+          }.to change(Token, :count).by(1)
+        end
+      end
+      
       describe "with valid params" do
         it "creates a new Token" do
           expect {

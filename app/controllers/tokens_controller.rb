@@ -43,6 +43,12 @@ class TokensController < ApplicationController
   # POST /tokens.json
   def create
     @token = Token.new(params[:token])
+    
+    # The user will be logged in, so autofill their ID
+    @token.user_id = current_user.id
+    
+    # Generate a unique token nam
+    @token.name = "abcde"
 
     respond_to do |format|
       if @token.save
