@@ -42,14 +42,12 @@ class TokensController < ApplicationController
   # POST /tokens
   # POST /tokens.json
   def create
+    # Creating the new token automatically generates a token name
     @token = Token.new(params[:token])
     
     # The user will be logged in, so autofill their ID
-    @token.user_id = current_user.id
+    @token.user = current_user
     
-    # Generate a unique token nam
-    @token.name = "abcde"
-
     respond_to do |format|
       if @token.save
         format.html { redirect_to @token, notice: 'Token was successfully created.' }

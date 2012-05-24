@@ -83,24 +83,21 @@ describe TokensController do
             post :create, {:token => user_supplied_attributes}
           }.to change(Token, :count).by(1)
         end
-      end
-      
-      describe "with valid params" do
-        it "creates a new Token" do
-          expect {
-            post :create, {:token => valid_attributes}
-          }.to change(Token, :count).by(1)
-        end
 
         it "assigns a newly created token as @token" do
-          post :create, {:token => valid_attributes}
+          post :create, {:token => user_supplied_attributes}
           assigns(:token).should be_a(Token)
           assigns(:token).should be_persisted
         end
 
         it "redirects to the created token" do
-          post :create, {:token => valid_attributes}
+          post :create, {:token => user_supplied_attributes}
           response.should redirect_to(Token.last)
+        end
+        
+        it "overrides user-provided token name" do
+          post :create, {:token => valid_attributes}
+          assigns(:token).should satisfy { |token| token.name != valid_attributes[:name] }
         end
       end
 
