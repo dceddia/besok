@@ -1,4 +1,6 @@
 class TokensController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /tokens
   # GET /tokens.json
   def index
