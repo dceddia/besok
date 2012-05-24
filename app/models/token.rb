@@ -5,6 +5,7 @@ class Token < ActiveRecord::Base
   validates :description, :presence => true
   before_validation :generate_name
   belongs_to :user
+  has_many :visits
   
   def generate_name
     # So many options...
