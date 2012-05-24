@@ -2,13 +2,16 @@
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>URL</th>
   </tr>
 
 <% @tokens.each do |token| %>
   <tr>
+    <td><%= token.name %></td>
+    <td><%= token.description %></td>
+    <td><%= token.url %></td>
     <td><%= link_to 'Show', token %></td>
     <td><%= link_to 'Edit', edit_token_path(token) %></td>
     <td><%= link_to 'Destroy', token, confirm: 'Are you sure?', method: :delete %></td>
