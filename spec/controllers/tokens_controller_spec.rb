@@ -177,4 +177,11 @@ describe TokensController do
       end
     end
   end
+    
+  describe "GET visit" do
+    it "should not require a user to be logged in" do
+      get :visit
+      response.should be_ok
+    end
+  end
 end

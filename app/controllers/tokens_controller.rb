@@ -1,5 +1,5 @@
 class TokensController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except  => :visit
   
   # GET /tokens
   # GET /tokens.json
@@ -85,5 +85,8 @@ class TokensController < ApplicationController
       format.html { redirect_to tokens_url }
       format.json { head :no_content }
     end
+  end
+  
+  def visit
   end
 end
