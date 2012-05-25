@@ -7,24 +7,28 @@
   margin-top: 1em;
   a {
     text-decoration: none;
-    display: inline-block;
-    margin-right: 20px;
+    display: block;
+    color: inherit;
+    width: 15em;
   }
   li {
-    width: 6em;
-    height: 6em;
     border: 1px solid #aaa;
-    padding: 1em;
+    margin-bottom: 1em;
+    overflow: hidden;
     .views {
       text-align: center;
-      border-bottom: 1px dashed #ccc;
+      border-right: 1px dashed #ccc;
+      margin-right: 1em;
+      float: left;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
       div {
         font-size: 32px;
-        padding-bottom: 4px;
+        line-height: 32px;
       }
     }
-    pre {
-      margin-top: 0.5em;
+    span {
+    
     }
   }
 }
