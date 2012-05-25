@@ -1,5 +1,14 @@
+<span>Click one to see more information</span>
 <ul class="token-list">
   <% @tokens.each do |token| %>
-  <li><%= token.name %>: <%= token.visits.count %> views</li>
+  <a href="<%= token_path(token) %>">
+    <li>
+      <div class="views">
+        <div><%= token.visits.count %></div>
+        views
+      </div>
+      <pre><%= token.name %></pre>
+    </li>
+  </a>
   <% end %>
 </ul>
