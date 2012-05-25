@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "tokens/edit" do
   before(:each) do
-    @token = assign(:token, stub_model(Token))
+    @token = assign(:token, FactoryGirl.create(:token))
   end
 
   it "renders the edit token form" do

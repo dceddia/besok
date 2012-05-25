@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div class="show-token">
+  <p>This token is named <code><%= @token.name %></code></p>
 
+  <p>It has <span class="visit-count"><%= @token.visits.length %></span> total views.</p>
+
+  <p>To start tracking views on a web page you control (your blog, Craigslist or Ebay ad, for instance), paste this code into the page:</p>
+  <pre>&lt;img src="<%= visit_token_url(@token) %>" /&gt;</pre>
+</div>
 <%= link_to 'Edit', edit_token_path(@token) %> |
 <%= link_to 'Back', tokens_path %>

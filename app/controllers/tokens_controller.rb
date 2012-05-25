@@ -15,7 +15,7 @@ class TokensController < ApplicationController
   # GET /tokens/1
   # GET /tokens/1.json
   def show
-    @token = Token.find(params[:id])
+    @token = Token.find_by_name(params[:id]) || Token.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +36,7 @@ class TokensController < ApplicationController
 
   # GET /tokens/1/edit
   def edit
-    @token = Token.find(params[:id])
+    @token = Token.find_by_name(params[:id]) || Token.find(params[:id])
   end
 
   # POST /tokens
@@ -62,7 +62,7 @@ class TokensController < ApplicationController
   # PUT /tokens/1
   # PUT /tokens/1.json
   def update
-    @token = Token.find(params[:id])
+    @token = Token.find_by_name(params[:id]) || Token.find(params[:id])
 
     respond_to do |format|
       if @token.update_attributes(params[:token])
@@ -78,7 +78,7 @@ class TokensController < ApplicationController
   # DELETE /tokens/1
   # DELETE /tokens/1.json
   def destroy
-    @token = Token.find(params[:id])
+    @token = Token.find_by_name(params[:id]) || Token.find(params[:id])
     @token.destroy
 
     respond_to do |format|
@@ -88,7 +88,7 @@ class TokensController < ApplicationController
   end
   
   def visit
-    @token = Token.find(params[:id])
+    @token = Token.find_by_name(params[:id]) || Token.find(params[:id])
     visit_params = { :ip_address => request.remote_ip || "none",
                      :user_agent => request['User-Agent'] || "none",
                      :referer => request['Referer'] || "none",

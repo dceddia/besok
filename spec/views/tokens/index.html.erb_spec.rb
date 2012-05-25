@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "tokens/index" do
   before(:each) do
     assign(:tokens, [
-      stub_model(Token),
-      stub_model(Token)
+      FactoryGirl.create(:token),
+      FactoryGirl.create(:token)
     ])
   end
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "tokens/show" do
   before(:each) do
-    @token = assign(:token, stub_model(Token))
+    @token = assign(:token, FactoryGirl.create(:token))
   end
 
   it "renders attributes in <p>" do

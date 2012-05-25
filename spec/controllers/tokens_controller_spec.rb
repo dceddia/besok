@@ -24,7 +24,7 @@ describe TokensController do
   # Token. As you add validations to Token, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {:name => 'ab23c', :description => 'My site tracker', :user_id => 1}
+    {:description => 'My site tracker', :user_id => 1}
   end
   
   def user_supplied_attributes
@@ -195,7 +195,7 @@ describe TokensController do
     it "should not change the token's name" do
       token = Token.create! valid_attributes
       get :visit, {:id => token.to_param}
-      updated_token = Token.find_by_id(token.to_param)
+      updated_token = Token.find_by_name(token.to_param)
       token.name.should == updated_token.name
     end
   end
