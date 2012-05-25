@@ -10,6 +10,6 @@ class Token < ActiveRecord::Base
   def generate_name
     # So many options...
     # http://blog.logeek.fr/2009/7/2/creating-small-unique-tokens-in-ruby
-    self.name = rand(36**8).to_s(36)
+    self.name = rand(36**8).to_s(36) if self.new_record?
   end
 end

@@ -91,7 +91,8 @@ class TokensController < ApplicationController
     @token = Token.find(params[:id])
     visit_params = { :ip_address => request.remote_ip || "none",
                      :user_agent => request['User-Agent'] || "none",
-                     :referer => request['Referer'] || "none" }
+                     :referer => request['Referer'] || "none",
+                     :token_id => @token.id }
     @token.visits << Visit.create!(visit_params)
     @token.save
   end

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="offset2 span8">
-    <h3>You have <%= @tokens.length %> tracking tokens:</h3>  
+    <h3>You have <%= pluralize(@tokens.length, 'tracking token') %>:</h3>  
     <% if @tokens.length > 0 %>
     <%= render 'token_list' %>
     <% else %>

@@ -191,5 +191,12 @@ describe TokensController do
         get :visit, {:id => token.to_param}
       }.to change{token.visits.count}.by(1)
     end
+    
+    it "should not change the token's name" do
+      token = Token.create! valid_attributes
+      get :visit, {:id => token.to_param}
+      updated_token = Token.find_by_id(token.to_param)
+      token.name.should == updated_token.name
+    end
   end
 end
