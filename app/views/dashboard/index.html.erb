@@ -2,12 +2,9 @@
   <div class="offset2 span8">
     <h2>Welcome back!</h2>
     <h3>Your tracking tokens:</h3>
+    
     <% if @tokens.length > 0 %>
-    <ul class="token-list">
-      <% @tokens.each do |token| %>
-      <li><%= token.name %>: <%= token.visits.count %> views</li>
-      <% end %>
-    </ul>
+    <%= render 'token_list' %>
     <% else %>
     You don't have any tracking tokens yet. Why not <%= link_to 'create one', new_token_path %>?
     <% end%>

@@ -1,0 +1,5 @@
+<ul class="token-list">
+  <% @tokens.each do |token| %>
+  <li><%= token.name %>: <%= token.visits.count %> views</li>
+  <% end %>
+</ul>
