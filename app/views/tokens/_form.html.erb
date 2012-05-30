@@ -11,14 +11,16 @@
     </div>
   <% end %>
 
+  <p>Describe your token, so you know what it's for.</p>
+  <p>URL is optional, but might help you remember where you put this token ;)</p>
   <div>
-    <%= f.label :url %>
-    <%= f.text_field :url %>
+    <%= f.label :description %>
+    <%= f.text_field :description, :length => 60 %>
   </div>
   
   <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
   </div>
   
   <div class="actions">
