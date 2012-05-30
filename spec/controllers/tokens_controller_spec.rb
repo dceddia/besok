@@ -92,7 +92,7 @@ describe TokensController do
 
         it "redirects to the created token" do
           post :create, {:token => user_supplied_attributes}
-          response.should redirect_to(Token.last)
+          response.should redirect_to(dashboard_path)
         end
         
         it "overrides user-provided token name" do
